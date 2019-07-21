@@ -1,6 +1,7 @@
 local Components = {
 	{label = _U('sex'),						name = 'sex',				value = 0,		min = 0,	zoomOffset = 0.6,		camOffset = 0.65},
 	{label = _U('face'),					name = 'face',				value = 0,		min = 0,	zoomOffset = 0.6,		camOffset = 0.65},
+	{label = _U('face_2'),					name = 'face_2',			value = -1,		min = -1,	zoomOffset = 0.6,		camOffset = 0.65},
 	{label = _U('skin'),					name = 'skin',				value = 0,		min = 0,	zoomOffset = 0.6,		camOffset = 0.65},
 	{label = _U('hair_1'),					name = 'hair_1',			value = 0,		min = 0,	zoomOffset = 0.6,		camOffset = 0.65},
 	{label = _U('hair_2'),					name = 'hair_2',			value = 0,		min = 0,	zoomOffset = 0.6,		camOffset = 0.65},
@@ -121,6 +122,7 @@ function GetMaxVals()
 	local data = {
 		sex				= 1,
 		face			= 45,
+		face_2			= 45,
 		skin			= 45,
 		age_1			= GetNumHeadOverlayValues(3)-1,
 		age_2			= 10,
@@ -208,6 +210,7 @@ function ApplySkin(skin, clothes)
 			if
 				k ~= 'sex'				and
 				k ~= 'face'				and
+				k ~= 'face_2'				and
 				k ~= 'skin'				and
 				k ~= 'age_1'			and
 				k ~= 'age_2'			and
@@ -254,7 +257,11 @@ function ApplySkin(skin, clothes)
 		end
 	end
 
-	SetPedHeadBlendData			(playerPed, Character['face'], Character['face'], Character['face'], Character['skin'], Character['skin'], Character['skin'], 1.0, 1.0, 1.0, true)
+	if Character['face_2'] == -1 then
+		SetPedHeadBlendData			(playerPed, Character['face'], Character['face'], Character['face'], Character['skin'], Character['skin'], Character['skin'], 1.0, 1.0, 1.0, true)
+	else
+		SetPedHeadBlendData			(playerPed, Character['face'], Character['face_2'], Character['face'], Character['skin'], Character['skin'], Character['skin'], 0.5, 0.5, 0.0, true)
+	end
 
 	SetPedHairColor				(playerPed,			Character['hair_color_1'],		Character['hair_color_2'])					-- Hair Color
 	SetPedHeadOverlay			(playerPed, 3,		Character['age_1'],				(Character['age_2'] / 10) + 0.0)			-- Age + opacity

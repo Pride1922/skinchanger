@@ -1,6 +1,7 @@
 Locales['br'] = {
   ['sex'] = 'sexo',
   ['face'] = 'rosto',
+  ['face_2'] = 'rosto 2',
   ['skin'] = 'pele',
   ['wrinkles'] = 'rugas',
   ['wrinkle_thickness'] = 'espessura das rugas',
