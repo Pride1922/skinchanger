@@ -1,6 +1,6 @@
 Locales['pl'] = {
   ['sex'] = 'płec',
-  ['face'] = 'twarz',
+  ['face'] = 'twarz 1',
   ['face_2'] = 'twarz 2',
   ['skin'] = 'skóra',
   ['wrinkles'] = 'zmarszczki',
