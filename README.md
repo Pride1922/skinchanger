@@ -32,6 +32,7 @@ local isMale = true
 local skin = {
 	sex          = 1,
 	face         = 0,
+	face_2		 = 0,
 	skin         = 0,
 	beard_1      = 0,
 	beard_2      = 0,
