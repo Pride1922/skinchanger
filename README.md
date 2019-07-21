@@ -1,6 +1,9 @@
 # skinchanger
 # DRAFT fork from [original skinchanger](https://github.com/ESX-Org/skinchanger), use at your own risk!
 
+## Fork Extra Features
+- Simple face blending option. Enhances face variability with almost no encumbering Skin Menu. 
+
 ## Download & Installation
 
 ### Using [fvm](https://github.com/qlaffont/fvm-installer)
