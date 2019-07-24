@@ -1,6 +1,9 @@
 # skinchanger
 # DRAFT fork from [original skinchanger](https://github.com/ESX-Org/skinchanger), use at your own risk!
 
+## Fork Extra Features
+- Simple face blending option. Enhances face variability with almost no encumbering Skin Menu. 
+
 ## Download & Installation
 
 ### Using [fvm](https://github.com/qlaffont/fvm-installer)
@@ -32,6 +35,7 @@ local isMale = true
 local skin = {
 	sex          = 1,
 	face         = 0,
+	face_2       = 0,
 	skin         = 0,
 	beard_1      = 0,
 	beard_2      = 0,
