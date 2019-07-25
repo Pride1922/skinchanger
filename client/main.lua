@@ -83,6 +83,8 @@ for i=1, #Components, 1 do
 	Character[Components[i].name] = Components[i].value
 end
 
+init_accordant_arms()
+
 function LoadDefaultModel(malePed, cb)
 	local playerPed = PlayerPedId()
 	local characterModel
@@ -195,6 +197,11 @@ function GetMaxVals()
 		bracelets_2		= GetNumberOfPedPropTextureVariations	(playerPed, 7, Character['bracelets_1'] - 1)
 	}
 
+	if Config.UseAccordantArms then
+		local acc = getAccordantArms(Character['sex'], Character['torso_1'])
+		data.arms = #acc - 1
+	end
+
 	return data
 end
 
@@ -292,7 +299,21 @@ function ApplySkin(skin, clothes)
 
 	SetPedComponentVariation	(playerPed, 8,		Character['tshirt_1'],			Character['tshirt_2'], 2)					-- Tshirt
 	SetPedComponentVariation	(playerPed, 11,		Character['torso_1'],			Character['torso_2'], 2)					-- torso parts
-	SetPedComponentVariation	(playerPed, 3,		Character['arms'],				Character['arms_2'], 2)						-- Amrs
+
+
+	if Config.UseAccordantArms then
+		local acc = getAccordantArms(Character['sex'], Character['torso_1'])
+		local arms_num = Character['arms']
+		if Character['arms'] < 0 or Character['arms'] >= #acc then
+			arms_num = 0
+		end
+
+		SetPedComponentVariation(playerPed, 3,		acc[arms_num+1],			Character['arms_2'], 2)						-- Arms
+	else
+		SetPedComponentVariation	(playerPed, 3,		Character['arms'],				Character['arms_2'], 2)						-- Arms
+	end
+
+
 	SetPedComponentVariation	(playerPed, 10,		Character['decals_1'],			Character['decals_2'], 2)					-- decals
 	SetPedComponentVariation	(playerPed, 4,		Character['pants_1'],			Character['pants_2'], 2)					-- pants
 	SetPedComponentVariation	(playerPed, 6,		Character['shoes_1'],			Character['shoes_2'], 2)					-- shoes
