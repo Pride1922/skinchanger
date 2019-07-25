@@ -3,6 +3,8 @@
 
 ## Fork Extra Features
 - Simple face blending option. Enhances face variability with almost no encumbering Skin Menu. 
+- Hide incompatible arms using Config.UseAccordantArms
+
 
 ## Download & Installation
 
